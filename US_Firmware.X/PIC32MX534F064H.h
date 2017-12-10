@@ -58,9 +58,9 @@ P32_EXTERN unsigned int mcuSqrt(unsigned int);
 #define ID_OUT      LATBbits.LATB15
 
 //inputs
-#define B1          PORTDbits.RD8
+#define B1          PORTDbits.RD10
 #define B2          PORTDbits.RD9
-#define B3          PORTDbits.RD10
+#define B3          PORTDbits.RD8
 #define ID_IN       PORTBbits.RB15
 #define NAP         PORTGbits.RG9
 #define ID_3S       TRISBbits.TRISB15
