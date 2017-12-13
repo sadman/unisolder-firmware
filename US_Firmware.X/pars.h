@@ -24,9 +24,10 @@ typedef union {
         UINT8 Holder;                               //Holder sensor (0(off), 1(on), 2(auto)
         UINT8 Deg;                                  //Celsius/Farenheit (0-Celsous), 1-Farenheit))
         UINT8 Bri;                                  //display brightness (1-16)
+        UINT8 SwapButtons;                          //Swap left and right button
         UINT8 Cal;
     };
-    UINT8 b[11];
+    UINT8 b[12];
 }pars_t;
 
 typedef struct {
@@ -39,7 +40,7 @@ typedef struct {
 }t_ParDef;
 
 #ifndef _PARS_C
-extern const t_ParDef ParDef[11];
+extern const t_ParDef ParDef[12];
 #endif
 
 #ifdef	__cplusplus

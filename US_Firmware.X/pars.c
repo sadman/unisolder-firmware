@@ -11,7 +11,7 @@ void ParDispTemp(int col, int row, int temp);
 void ParDispCF(int col, int row, int num);
 void Temp(int T, int C_F);
 
-const t_ParDef ParDef[11] = {
+const t_ParDef ParDef[12] = {
     {"        T1 ", {78  , 160,   0}, 125, 75, 225, &ParDispTemp},
     {"        T2 ", {78  ,  62,   0}, 150, 75, 225, &ParDispTemp},
     {"        T3 ", {78  , 186,   0}, 175, 75, 225, &ParDispTemp},
@@ -22,6 +22,7 @@ const t_ParDef ParDef[11] = {
     {"    HOLDER ", {230 , 252,  76},   2,  0,   2, &ParDispOnOffAuto},
     {"   DEGREES ", {230 , 252,  76},   0,  0,   1, &ParDispCF},
     {"BRIGHTNESS ", {206 ,   6, 128},  15,  1,  15, &ParDispNum},
+    {" SWAP BTNS ", {206 ,  78,   0},   0,  0,   1, &ParDispOnOffAuto},
     {"CALIBRATION", { 92 , 246,  76},  15,  1,  15, 0}
 };
 

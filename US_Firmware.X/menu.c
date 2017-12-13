@@ -383,9 +383,9 @@ void MenuTasks(){
                     if(BTicks[i].n < 240)BTicks[i].n++;
                     BTicks[i].d = (BTicks[i].n == 1) || ((BTicks[i].n > 25) && ((LISRTicks & 3) == 1));
                 }
-                if(!B1){BTicks[0].n = 0;BTicks[0].d = 0;}
+                if(!B1){BTicks[pars.SwapButtons ? 2 : 0].n = 0;BTicks[pars.SwapButtons ? 2 : 0].d = 0;}
                 if(!B2){BTicks[1].n = 0;BTicks[1].d = 0;}
-                if(!B3){BTicks[2].n = 0;BTicks[2].d = 0;}
+                if(!B3){BTicks[pars.SwapButtons ? 0 : 2].n = 0;BTicks[pars.SwapButtons ? 0 : 2].d = 0;}
 
                 DispTemp -= DispTemp >> 3;
                 i = PIDVars[0].CTemp[0];

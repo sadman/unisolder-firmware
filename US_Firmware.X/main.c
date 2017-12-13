@@ -53,7 +53,7 @@ volatile pars_t         pars;
 
 void LoadPars(void)
 {
-    int i;
+    unsigned int i;
     UINT8 b,oldb;
 
     EEPRead(0, (UINT8 *)&pars, sizeof(pars));
@@ -81,7 +81,7 @@ void LoadPars(void)
 
 void SavePars(void)
 {
-    int i;
+    unsigned int i;
     UINT8 b, oldb;
 
     for(i = 0; i < sizeof(pars); i++){
