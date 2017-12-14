@@ -258,6 +258,9 @@ void OLEDTasks(){
         OLEDPrintCF1648(108, 1, pars.Deg ? 1 : 0);
         //OLEDPrint68(104, 6, "/", 1);
         //OLEDPrintNum68(110, 6, 3, CTTemp);
+        OLEDPrintNum68(98, 0, 3, CTTemp << 1);
+        OLEDPrint68(116, 0, "/", 1);
+        OLEDPrint68(122, 0, NAP ? "-" : "H", 1);
     }
 
     if(OLEDFlags.f.Set){
@@ -274,7 +277,7 @@ void OLEDTasks(){
     if(OLEDFlags.f.Header){
         //OLEDPrintNum68(0,0,8,PIDVars[0].CPolyX * 10.0);
         //OLEDPrintNum68(64,0,8,PIDVars[0].PrbFCTemp1);
-        OLEDPrint68(0,0,(const char *)&IronPars.Name, 21);
+        OLEDPrint68(0,0,(const char *)&IronPars.Name, 15);
     }
     if(OLEDFlags.f.Footer){
         UINT8 b;
