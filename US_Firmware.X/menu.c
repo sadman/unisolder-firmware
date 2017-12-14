@@ -101,7 +101,7 @@ void OLEDTasks(){
             DoExit=1;
             switch(CMode){
                 case 0: //default mode - display temperature and do nothing
-                    if(CTTemp < 75){
+                    if(CTTemp < MINTEMP){
                         CMode = 0xFF;
                         ModeTicks = 255;
                         DoExit = 0;
@@ -154,8 +154,8 @@ void OLEDTasks(){
                         i = TTemp;
                         if(BTicks[0].d)TTemp += (BTicks[0].n>>6) + 1;
                         if(BTicks[2].d)TTemp -= (BTicks[2].n>>6) + 1;
-                        if(TTemp < 75)TTemp = 75;
-                        if(TTemp > 225)TTemp = 225;
+                        if(TTemp < MINTEMP)TTemp = MINTEMP;
+                        if(TTemp > MAXTEMP)TTemp = MAXTEMP;
                         if(i != TTemp)TempBeep = 1;
                     }
                     OLEDFlags.f.Header = 1;
@@ -188,8 +188,8 @@ void OLEDTasks(){
                             CRstTemp++;
                             if(CRstTemp > 2)CRstTemp=0;
                         }
-                        if(TTemp < 75)TTemp = 75;
-                        if(TTemp > 225)TTemp = 225;
+                        if(TTemp < MINTEMP)TTemp = MINTEMP;
+                        if(TTemp > MAXTEMP)TTemp = MAXTEMP;
                     }
                     OLEDFlags.f.Header = 1;
                     OLEDFlags.f.Footer = 1;

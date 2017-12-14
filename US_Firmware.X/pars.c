@@ -12,11 +12,11 @@ void ParDispCF(int col, int row, int num);
 void Temp(int T, int C_F);
 
 const t_ParDef ParDef[12] = {
-    {"        T1 ", {78  , 160,   0}, 125, 75, 225, &ParDispTemp},
-    {"        T2 ", {78  ,  62,   0}, 150, 75, 225, &ParDispTemp},
-    {"        T3 ", {78  , 186,   0}, 175, 75, 225, &ParDispTemp},
-    {" HOL. TEMP ", {230 ,  78,   0}, 150, 75, 225, &ParDispTemp},
-    {"SLEEP TEMP ", {218 ,  78,   0}, 125, 75, 225, &ParDispTemp},
+    {"        T1 ", {78  , 160,   0}, 125, MINTEMP, MAXTEMP, &ParDispTemp},
+    {"        T2 ", {78  ,  62,   0}, 150, MINTEMP, MAXTEMP, &ParDispTemp},
+    {"        T3 ", {78  , 186,   0}, 175, MINTEMP, MAXTEMP, &ParDispTemp},
+    {" HOL. TEMP ", {230 ,  78,   0}, 150, MINTEMP, MAXTEMP, &ParDispTemp},
+    {"SLEEP TEMP ", {218 ,  78,   0}, 125, MINTEMP, MAXTEMP, &ParDispTemp},
     {"SLEEP TIME ", {218 ,  78, 128},  20,  0, 255, &ParDispNumOff},
     {"  STAND-BY ", {218 , 206,  78},  30,  0, 255, &ParDispNumOff},
     {"    HOLDER ", {230 , 252,  76},   2,  0,   2, &ParDispOnOffAuto},

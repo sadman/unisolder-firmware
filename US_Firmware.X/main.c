@@ -70,7 +70,7 @@ void LoadPars(void)
     oldb=EEPRead(63 + 64, 0, 1);
     for(i = 0; i < 64; i++){
         b = EEPRead(i + 64, 0, 1);
-        if((oldb == 0xFF) && (b >= 75) && (b <= 225)){
+        if((oldb == 0xFF) && (b >= MINTEMP) && (b <= MAXTEMP)){
             TTemp = b;
             break;
         }
@@ -90,7 +90,7 @@ void SavePars(void)
     oldb = EEPRead(63 + 64, 0, 1);
     for(i = 0; i < 64; i++){
         b = EEPRead(i + 64, 0, 1);
-        if((oldb==0xFF) && (b >= 75) && (b <= 225))break;
+        if((oldb==0xFF) && (b >= MINTEMP) && (b <= MAXTEMP))break;
         oldb = b;
     }
     i &= 63;

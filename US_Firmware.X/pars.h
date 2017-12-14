@@ -14,6 +14,9 @@
 extern "C" {
 #endif
 
+#define MINTEMP (150/2)
+#define MAXTEMP (450/2)
+    
 typedef union {
     struct __PACKED {
         UINT8 RTemp[3];                             //Reset temperatures
