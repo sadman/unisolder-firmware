@@ -33,6 +33,7 @@ static int ModeTicks;
 static int DoExit;
 static int DispTemp;
 static int CalRes;
+static int NapTicks;
 
 static union {
     UINT32 DW;
@@ -69,6 +70,7 @@ void MenuInit(){
     CTicks=0;
     BeepTicks=0;
     InvertTicks=0;
+    NapTicks = pars.NapFilterTicks + 1;
     for(i=0;i<3;i++){
         BTicks[i].o=0;
         BTicks[i].n=0;
@@ -260,7 +262,7 @@ void OLEDTasks(){
         //OLEDPrintNum68(110, 6, 3, CTTemp);
         OLEDPrintNum68(98, 0, 3, CTTemp << 1);
         OLEDPrint68(116, 0, "/", 1);
-        OLEDPrint68(122, 0, NAP ? "-" : "H", 1);
+        OLEDPrint68(122, 0, (NapTicks > pars.NapFilterTicks) ? "-" : "H", 1);
     }
 
     if(OLEDFlags.f.Set){
@@ -418,6 +420,12 @@ void MenuTasks(){
                 else{
                     CMode = 0;
                 }
+                
+                if (!NAP)
+                    NapTicks = 0;
+                else
+                    if (NapTicks <= pars.NapFilterTicks)
+                    NapTicks++;
 
                 if(CMode == 0xFF){
                     ModeTicks = 255;
@@ -432,7 +440,7 @@ void MenuTasks(){
                             if(CMinutes < 255)CMinutes++;
                         }
                     }
-                    if(B1 || B2 || B3 || (((pars.Holder == 1) || ((pars.Holder == 2) && mainFlags.HolderPresent)) && NAP)){
+                    if(B1 || B2 || B3 || (((pars.Holder == 1) || ((pars.Holder == 2) && mainFlags.HolderPresent)) && (NapTicks > pars.NapFilterTicks))){
                         CTicks = 0;
                         CSeconds = 0;
                         CMSeconds = 0;
@@ -440,7 +448,7 @@ void MenuTasks(){
                     }
 
                     i = TTemp;
-                    if(!NAP){
+                    if(NapTicks <= pars.NapFilterTicks){
                         mainFlags.HolderPresent = 1;
                         if(i > pars.HTemp) i = pars.HTemp;
                     }

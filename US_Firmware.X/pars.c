@@ -11,7 +11,7 @@ void ParDispTemp(int col, int row, int temp);
 void ParDispCF(int col, int row, int num);
 void Temp(int T, int C_F);
 
-const t_ParDef ParDef[12] = {
+const t_ParDef ParDef[13] = {
     {"        T1 ", {78  , 160,   0}, 125, MINTEMP, MAXTEMP, &ParDispTemp},
     {"        T2 ", {78  ,  62,   0}, 150, MINTEMP, MAXTEMP, &ParDispTemp},
     {"        T3 ", {78  , 186,   0}, 175, MINTEMP, MAXTEMP, &ParDispTemp},
@@ -23,6 +23,7 @@ const t_ParDef ParDef[12] = {
     {"   DEGREES ", {230 , 252,  76},   0,  0,   1, &ParDispCF},
     {"BRIGHTNESS ", {206 ,   6, 128},  15,  1,  15, &ParDispNum},
     {" SWAP BTNS ", {206 ,  78,   0},   0,  0,   1, &ParDispOnOffAuto},
+    {" SENS FILT ", {  0 ,   0,   1},   0,  0, 255, &ParDispNumOff},
     {"CALIBRATION", { 92 , 246,  76},  15,  1,  15, 0}
 };
 
