@@ -103,12 +103,12 @@ void OLEDTasks(){
             DoExit=1;
             switch(CMode){
                 case 0: //default mode - display temperature and do nothing
-                    if(CTTemp < MINTEMP){
+/*                    if(CTTemp < MINTEMP){
                         CMode = 0xFF;
                         ModeTicks = 255;
                         DoExit = 0;
                         break;
-                    }
+                    }*/
                     if(BTicks[0].n | BTicks[2].n)CMode=1;
                     if(BTicks[1].o && (BTicks[1].o<100) && (BTicks[1].n==0))CMode=2;
                     if(CMode != 0){
@@ -248,6 +248,7 @@ void OLEDTasks(){
                     OLEDFlags.f.Message=1;
                     OLEDMsg1="       ZZZ.. .  .";
                     OLEDMsg2="";
+                    ModeTicks = 255;
                     break;
             }
         }while(!DoExit);
@@ -460,7 +461,11 @@ void MenuTasks(){
                             if(CMinutes >= pars.SlTime) i = pars.SlTemp;                            
                         }
                     }
-                    if(pars.STBTime && (CMinutes >= pars.STBTime)) i = 0;
+                    if(pars.STBTime && (CMinutes >= pars.STBTime)) {
+                        i = 0;
+                        CMode = 0xff;
+                        ModeTicks = 255;
+                    }
                     CTTemp = i;
 
                     if(TempBeep && (CTTemp == TTemp) && (CTTemp == (DispTemp >> 5))){

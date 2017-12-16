@@ -14,7 +14,7 @@
 extern "C" {
 #endif
 
-#define MINTEMP (150/2)
+#define MINTEMP (0/2)
 #define MAXTEMP (450/2)
     
 typedef union {
